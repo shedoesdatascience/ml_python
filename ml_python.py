@@ -1,13 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# ---
-# 
-# _You are currently looking at **version 1.0** of this notebook. To download notebooks and datafiles, as well as get help on Jupyter notebooks in the Coursera platform, visit the [Jupyter Notebook FAQ](https://www.coursera.org/learn/python-machine-learning/resources/bANLa) course resource._
-# 
-# ---
-
-# ## Assignment 4 - Understanding and Predicting Property Maintenance Fines
+# ##  Understanding and Predicting Property Maintenance Fines
 # 
 # This assignment is based on a data challenge from the Michigan Data Science Team ([MDST](http://midas.umich.edu/mdst/)). 
 # 
@@ -85,10 +77,9 @@
 # 
 # The evaluation metric for this assignment is the Area Under the ROC Curve (AUC). 
 # 
-# Your grade will be based on the AUC score computed for your classifier. A model which with an AUROC of 0.7 passes this assignment, over 0.75 will recieve full points.
-# ___
-# 
-# For this assignment, create a function that trains a model to predict blight ticket compliance in Detroit using `train.csv`. Using this model, return a series of length 61001 with the data being the probability that each corresponding ticket from `test.csv` will be paid, and the index being the ticket_id.
+
+# For this assessment, create a function that trains a model to predict blight ticket compliance in Detroit using `train.csv`. 
+# Using this model, return a series of length 61001 with the data being the probability that each corresponding ticket from `test.csv` will be paid, and the index being the ticket_id.
 # 
 # Example:
 # 
@@ -103,9 +94,9 @@
 #        369851    0.018528
 #        Name: compliance, dtype: float32
 
-# In[3]:
 
 
+#1st block of code
 import pandas as pd
 import numpy as np
 import seaborn as sn
@@ -226,10 +217,6 @@ X_test = new_test_df
 
 
 
-
-# In[7]:
-
-
 def gbm_model(X_train, X_val, X_test,y_train,y_val):
     from sklearn.metrics import roc_curve, auc
     from sklearn.metrics import accuracy_score
@@ -268,9 +255,7 @@ def gbm_model(X_train, X_val, X_test,y_train,y_val):
 gbm_model(X_train, X_val, X_test,y_train, y_val)
 
 
-# In[9]:
-
-
+#function for randomforest
 def randforest_model(X_train, X_val, X_test,y_train,y_val):
     from sklearn.metrics import roc_curve, auc
     from sklearn.metrics import accuracy_score
@@ -307,9 +292,7 @@ def randforest_model(X_train, X_val, X_test,y_train,y_val):
 
 randforest_model(X_train, X_val, X_test,y_train, y_val)
 
-
-# In[10]:
-
+#function for neural network
 
 def nn_model(X_train, X_val, X_test,y_train, y_val):
     from sklearn.neural_network import MLPClassifier
@@ -350,9 +333,8 @@ nn_model(X_train, X_val, X_test,y_train, y_val)
    
 
 
-# In[ ]:
 
-
+#sample code for one-hot encoding
 from sklearn.preprocessing import LabelEncoder
 dataset = data.values
 # split data into X and y
